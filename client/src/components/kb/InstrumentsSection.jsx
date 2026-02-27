@@ -99,7 +99,7 @@ export default function InstrumentsSection() {
                   </div>
                   {inst.players.length > 0 && (
                     <div>
-                      <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1">Jugadores OnuBatú</p>
+                      <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1">Miembros OnuBatú</p>
                       <div className="flex flex-wrap gap-1.5">
                         {inst.players.map(p => (
                           <span key={p} className="text-xs px-2 py-0.5 rounded-full bg-gray-100 text-gray-600">{p}</span>
@@ -107,10 +107,8 @@ export default function InstrumentsSection() {
                       </div>
                     </div>
                   )}
-                  {inst.descriptionEs && (
                     <div>
                       <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1">En español</p>
-                      <p className="text-sm text-gray-500 italic">{inst.descriptionEs}</p>
                     </div>
                   )}
                 </div>

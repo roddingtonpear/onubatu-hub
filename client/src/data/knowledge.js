@@ -1,413 +1,135 @@
-// OnuBatú Knowledge Base - seeded from group chat and past conversations
-// This is the static reference data. Dynamic content comes from chat uploads via tags.
-
 export const INSTRUMENT_GROUPS = {
   agudos: {
     name: 'Agudos',
-    nameEn: 'High voices',
-    description: 'Los instrumentos agudos — the high-pitched instruments that carry melody, rhythm patterns, and call-and-response leads.',
-    descriptionEn: 'The high-pitched instruments that carry melody, rhythm patterns, and call-and-response leads.',
+    nameEn: 'Voces agudas',
+    description: 'Los instrumentos agudos — llevan la melodía, los patrones rítmicos y las llamadas y respuestas.',
     color: '#E8453C',
     instruments: ['tamborim', 'repinique', 'caixa', 'agogo', 'chocalho']
   },
   graves: {
     name: 'Graves',
-    nameEn: 'Low voices',
-    description: 'Los instrumentos graves — the bass section that provides the foundation, pulse, and power of the batucada.',
-    descriptionEn: 'The bass section that provides the foundation, pulse, and power of the batucada.',
+    nameEn: 'Voces graves',
+    description: 'La sección de graves — proporciona la base, el pulso y la potencia de la batucada.',
     color: '#3B82C4',
     instruments: ['surdo_fundo', 'surdo_dobra', 'timba']
   }
 };
 
 export const INSTRUMENTS = {
-  tamborim: {
-    name: 'Tamborim',
-    group: 'agudos',
-    description: 'Small handheld frame drum (~6"). Played with a flexible stick (baqueta). Produces sharp, cutting high-pitched sounds. Often plays intricate patterns and the "virado" flip technique.',
-    descriptionEs: 'Pequeño tambor de mano (~6"). Se toca con una baqueta flexible. Produce sonidos agudos y cortantes.',
-    technique: 'Hold in non-dominant hand, strike with flexible stick. The "virado" technique involves flipping the drum on certain beats for accent patterns.',
-    role: 'Carries melodic rhythm patterns. Often plays the most complex parts. In call-and-response, tamborims are part of the agudos (high) section.',
-    players: ['Aurora', 'Sergio', 'Mariquilla', 'Carlitos', 'Judith', 'Mery', 'Nuria'],
-    icon: '🥁'
-  },
-  repinique: {
-    name: 'Repinique',
-    group: 'agudos',
-    description: 'Medium-sized drum (~10-12") worn with a strap. Played with one stick and one bare hand. The "lead voice" of the batucada — cuts through everything.',
-    descriptionEs: 'Tambor mediano (~10-12") que se lleva con correa. Se toca con un palo y una mano. La "voz líder" de la batucada.',
-    technique: 'Stick hand plays rim shots and rim clicks. Bare hand plays open tones, muted strokes, and slaps. Key strokes: rim shot (X), rim click (R), open tone (o), muted press.',
-    role: 'Lead voice. Calls breaks (cortes), signals transitions, plays call patterns. In many rhythms the repinique initiates and the ensemble responds. Often has the most freedom for improvisation.',
-    players: ['Inma', 'Dave'],
-    icon: '🪘'
-  },
-  caixa: {
-    name: 'Caixa',
-    group: 'agudos',
-    description: 'Snare drum with wire snares on the bottom head. Provides the constant "buzz" and drive of the batucada. Played with two sticks.',
-    descriptionEs: 'Caja clara con bordones. Proporciona el "zumbido" constante y la energía de la batucada. Se toca con dos baquetas.',
-    technique: 'Two-stick technique. Alternating strokes with accents. Ghost notes create the buzz underneath. Rim clicks for accents.',
-    role: 'The engine — keeps constant drive and energy. Fills in the gaps between other instruments. In a parade, the caixa section is what keeps everyone moving.',
-    players: ['Adrián', 'Dave'],
-    icon: '🥁'
-  },
-  agogo: {
-    name: 'Agogô',
-    group: 'agudos',
-    description: 'Double bell instrument (two connected metal bells of different pitches). Struck with a stick. Each rhythm has its own specific agogô pattern.',
-    descriptionEs: 'Instrumento de doble campana (dos campanas metálicas de diferentes tonos conectadas). Se golpea con un palo.',
-    technique: 'Hold bells in one hand, strike with stick in the other. Alternate between high and low bells to create the pattern. Can also squeeze bells together for a muted sound.',
-    role: 'Carries the timeline — similar to a clave in Cuban music. The agogô pattern is often the "key" that defines which rhythm is being played. Especially important in afro beats.',
-    players: ['Virginia'],
-    icon: '🔔'
-  },
-  chocalho: {
-    name: 'Chocalho',
-    group: 'agudos',
-    description: 'Shaker/rattle — a frame with metal jingles or platinelas. Provides shimmer and texture.',
-    descriptionEs: 'Maraca/sonajero — un marco con cascabeles metálicos. Proporciona brillo y textura.',
-    technique: 'Shake with wrist motion, accenting certain beats. Can be twisted for different timbres.',
-    role: 'Adds texture and shimmer. Fills out the high-frequency space. Often plays a steady pattern that glues everything together.',
-    players: [],
-    icon: '🎵'
-  },
-  surdo_fundo: {
-    name: 'Surdo de Fundo (1ª)',
-    group: 'graves',
-    description: 'The deepest, biggest surdo (~22-24"). The heartbeat of the batucada. Plays on beat 2 in most samba patterns.',
-    descriptionEs: 'El surdo más profundo y grande (~22-24"). El latido de la batucada. Toca en el tiempo 2 en la mayoría de los patrones de samba.',
-    technique: 'Played with a large soft mallet (maza). One hand holds the mallet, the other hand mutes the head. Mute on beat 1, open hit on beat 2.',
-    role: 'The pulse. Everything is built on top of the fundo. In a parade, it\'s what people feel in their chest. The marcação (basic pattern) is the foundation of every rhythm.',
-    players: ['Jessi', 'Marta'],
-    icon: '🪘'
-  },
-  surdo_dobra: {
-    name: 'Surdo de Dobra (2ª)',
-    group: 'graves',
-    description: 'Mid-range surdo (~18-20"). Plays a complementary pattern to the fundo, usually hitting on beat 1. Together with fundo creates the "heartbeat" groove.',
-    descriptionEs: 'Surdo de rango medio (~18-20"). Toca un patrón complementario al fundo, generalmente golpeando en el tiempo 1.',
-    technique: 'Same mallet technique as fundo. Pattern interlocks with fundo — when fundo plays, dobra mutes, and vice versa.',
-    role: 'Interlocks with fundo to create the full bass groove. The dobra "answers" the fundo. Together they create the characteristic boom-BOOM, boom-BOOM of samba.',
-    players: ['Cynthia', 'Rocío'],
-    icon: '🪘'
-  },
-  timba: {
-    name: 'Timba / Timbau',
-    group: 'graves',
-    description: 'Lightweight conical drum made of nylon/synthetic materials. Higher pitched than surdos but still in the graves section. Very versatile — can play bass patterns and melodic fills.',
-    descriptionEs: 'Tambor cónico ligero hecho de materiales sintéticos. Más agudo que los surdos pero aún en la sección de graves.',
-    technique: 'Can be played with hands, sticks, or combination. Hand technique includes open tones, slaps, bass tones, and muted strokes.',
-    role: 'Bridge between graves and agudos. Adds rhythmic complexity to the bass section. In some rhythms (especially afro), timbas play intricate patterns and fills.',
-    players: ['Nacho', 'Iván', 'Teresa'],
-    icon: '🪘'
-  }
+  tamborim: { name: 'Tamborim', group: 'agudos', description: 'Pequeño tambor de mano (~6"). Se toca con una baqueta flexible. Produce sonidos agudos y cortantes. A menudo toca patrones complejos y la técnica del "virado".', technique: 'Se sujeta con la mano no dominante, se golpea con baqueta flexible. La técnica del "virado" consiste en girar el tambor en ciertos tiempos para acentuar.', role: 'Lleva los patrones rítmicos melódicos. Suele tocar las partes más complejas. En llamada y respuesta, los tamborims forman parte de los agudos.', players: ['Aurora', 'Sergio', 'Mariquilla', 'Carlitos', 'Judith', 'Mery', 'Nuria'], icon: '🥁' },
+  repinique: { name: 'Repinique', group: 'agudos', description: 'Tambor mediano (~10-12") que se lleva con correa. Se toca con un palo y una mano. La "voz líder" de la batucada — corta a través de todo.', technique: 'La mano del palo toca rim shots y rim clicks. La mano desnuda toca tonos abiertos, golpes apagados y slaps. Golpes clave: rim shot (X), rim click (R), tono abierto (o), apagado.', role: 'Voz líder. Marca los cortes, señala las transiciones, toca los patrones de llamada. En muchos ritmos el repinique inicia y el conjunto responde. Tiene más libertad para improvisar.', players: ['Inma', 'Dave'], icon: '🪘' },
+  caixa: { name: 'Caixa', group: 'agudos', description: 'Caja clara con bordones en la parte inferior. Proporciona el "zumbido" constante y la energía de la batucada. Se toca con dos baquetas.', technique: 'Técnica de dos baquetas. Golpes alternos con acentos. Las notas fantasma crean el zumbido debajo. Rim clicks para acentos.', role: 'El motor — mantiene el impulso y la energía constante. Rellena los huecos entre otros instrumentos. En un pasacalle, la sección de caixa es lo que mantiene a todos en movimiento.', players: ['Adrián', 'Dave'], icon: '🥁' },
+  agogo: { name: 'Agogô', group: 'agudos', description: 'Instrumento de doble campana (dos campanas metálicas de diferentes tonos). Se golpea con un palo. Cada ritmo tiene su propio patrón de agogô.', technique: 'Se sujetan las campanas con una mano y se golpean con el palo en la otra. Se alterna entre la campana aguda y grave. También se pueden apretar para un sonido apagado.', role: 'Lleva la línea temporal — similar a una clave en la música cubana. El patrón del agogô define qué ritmo se está tocando. Especialmente importante en los beats afro.', players: ['Virginia'], icon: '🔔' },
+  chocalho: { name: 'Chocalho', group: 'agudos', description: 'Maraca/sonajero — un marco con cascabeles metálicos o platinelas. Proporciona brillo y textura.', technique: 'Se agita con movimiento de muñeca, acentuando ciertos tiempos. Se puede girar para diferentes timbres.', role: 'Añade textura y brillo. Rellena el espacio de alta frecuencia. A menudo toca un patrón constante que une todo.', players: [], icon: '🎵' },
+  surdo_fundo: { name: 'Surdo de Fundo (1ª)', group: 'graves', description: 'El surdo más profundo y grande (~22-24"). El latido de la batucada. Toca en el tiempo 2 en la mayoría de los patrones de samba.', technique: 'Se toca con una maza grande y suave. Una mano sujeta la maza, la otra apaga el parche. Apagar en tiempo 1, golpe abierto en tiempo 2.', role: 'El pulso. Todo se construye sobre el fundo. En un pasacalle, es lo que la gente siente en el pecho. La marcação es la base de cada ritmo.', players: ['Jessi', 'Marta'], icon: '🪘' },
+  surdo_dobra: { name: 'Surdo de Dobra (2ª)', group: 'graves', description: 'Surdo de rango medio (~18-20"). Toca un patrón complementario al fundo, generalmente en el tiempo 1. Junto con el fundo crea el groove del "latido".', technique: 'Misma técnica de maza que el fundo. El patrón se entrelaza con el fundo — cuando el fundo toca, la dobra apaga, y viceversa.', role: 'Se entrelaza con el fundo para crear el groove completo. La dobra "responde" al fundo. Juntos crean el boom-BOOM, boom-BOOM del samba.', players: ['Cynthia', 'Rocío'], icon: '🪘' },
+  timba: { name: 'Timba / Timbau', group: 'graves', description: 'Tambor cónico ligero hecho de materiales sintéticos. Más agudo que los surdos pero aún en la sección de graves. Muy versátil.', technique: 'Se puede tocar con manos, baquetas o combinación. Tonos abiertos, slaps, tonos graves y golpes apagados.', role: 'Puente entre graves y agudos. Añade complejidad rítmica a la sección de graves. En algunos ritmos (especialmente afro), las timbas tocan patrones complejos.', players: ['Nacho', 'Iván', 'Teresa'], icon: '🪘' }
 };
 
 export const RHYTHMS = {
-  avenida: {
-    name: 'Avenida',
-    nameAlt: 'Samba de Enredo',
-    status: 'active',
-    clave: 'Avenida clave (also used for: Son, Candombe, Congo, Teatro Falla Carnaval Cádiz)',
-    feel: 'Straight 4/4, driving samba feel',
-    description: 'The main parade rhythm. High energy, driving, powerful. This is what batucadas play marching down the street. Named "avenida" (avenue) because it\'s the rhythm for the avenue/parade route.',
-    descriptionEs: 'El ritmo principal de desfile. Alta energía, impulso, potencia. Lo que las batucadas tocan marchando por la calle.',
-    fullSequence: [
-      { order: 1, name: 'La Foto', description: 'Photo pose / freeze' },
-      { order: 2, name: 'Ritmo Avenida', description: 'Main groove starts' },
-      { order: 3, name: 'Corte 1 Olodum "Je Je"', description: 'First break — Olodum style' },
-      { order: 4, name: 'Un Break', description: 'A break section' },
-      { order: 5, name: 'Ritmo Avenida', description: 'Back to main groove' },
-      { order: 6, name: 'Corte 1 OnuBatú', description: 'Repeated 3×: first 2 times slowing down as if stopping, 3rd time rhythm continues' },
-      { order: 7, name: '4 Claves y Stop', description: '4 avenida claves then full stop' }
-    ],
-    source: 'Sergio video 7:41 sent to Marta — full sequence start to finish'
-  },
-  merengue: {
-    name: 'Merengue',
-    nameAlt: 'Samba Merengue',
-    status: 'active',
-    clave: 'Merengue clave (also used for: Bossa Nova)',
-    feel: 'Straight 4/4, slightly different swing from avenida',
-    description: 'A samba-influenced merengue feel. Features call-and-response between agudos and graves sections.',
-    descriptionEs: 'Un ritmo de merengue con influencia de samba. Presenta llamada y respuesta entre secciones de agudos y graves.',
-    fullSequence: null
-  },
-  afro: {
-    name: 'Afro',
-    nameAlt: 'Samba Afro',
-    status: 'learning',
-    clave: null,
-    feel: '6/8 or 12/8 swing/triplet feel — NOT straight 4/4',
-    description: 'Syncopated, triplet-feel rhythm rooted in Afro-Brazilian traditions. Think shuffle: long-short, long-short. Heavy downbeat emphasis, rolling/circular feel. More space and freedom than tighter samba patterns. The agogô bell pattern is especially important here as it carries the main timeline.',
-    descriptionEs: 'Ritmo sincopado con sensación de tresillo enraizado en tradiciones afro-brasileñas. Más espacio y libertad que los patrones de samba más cerrados.',
-    fullSequence: null,
-    notes: 'Sergio recorded instrument-by-instrument afro patterns at end of rehearsal (late Jan 2026). Videos may be floating around in the group.'
-  },
-  swing: {
-    name: 'Swing',
-    nameAlt: 'Rumba',
-    status: 'not_yet',
-    clave: 'Swing clave (also used for: Rumba)',
-    feel: 'Swing/shuffle feel',
-    description: 'On the clave sheet but not yet taught to the group. Rumba-influenced swing rhythm.',
-    descriptionEs: 'En la hoja de claves pero aún no enseñado al grupo. Ritmo de swing con influencia de rumba.',
-    fullSequence: null
-  },
-  reggae: {
-    name: 'Reggae',
-    nameAlt: 'Samba Reggae',
-    status: 'not_yet',
-    clave: null,
-    feel: 'Half-time feel, heavy backbeat',
-    description: 'Samba reggae — originated in Salvador da Bahia. Slower, heavier feel with emphasis on the offbeat. Not yet in the OnuBatú repertoire.',
-    descriptionEs: 'Samba reggae — originado en Salvador de Bahía. Ritmo más lento y pesado con énfasis en el contratiempo.',
-    fullSequence: null
-  },
-  samba_de_roda: {
-    name: 'Samba de Roda',
-    nameAlt: 'Toma ke Toma / Clave Coco / Partido Alto',
-    status: 'not_yet',
-    clave: 'Samba de Roda ½ Clave',
-    feel: 'Circle samba feel',
-    description: 'Traditional circle samba from Bahia. On the clave sheet but not yet taught.',
-    descriptionEs: 'Samba de rueda tradicional de Bahía. En la hoja de claves pero aún no enseñado.',
-    fullSequence: null
-  }
+  avenida: { name: 'Avenida', nameAlt: 'Samba de Enredo', status: 'active', clave: 'Clave de Avenida (también: Son, Candombe, Congo, Teatro Falla Carnaval Cádiz)', feel: '4/4 recto, samba con mucha energía', description: 'El ritmo principal de desfile. Alta energía, impulso, potencia. Lo que las batucadas tocan marchando por la calle.', fullSequence: [{ order: 1, name: 'La Foto', description: 'Pose / congelados' }, { order: 2, name: 'Ritmo Avenida', description: 'Empieza el groove principal' }, { order: 3, name: 'Corte 1 Olodum "Je Je"', description: 'Primer corte — estilo Olodum' }, { order: 4, name: 'Un Break', description: 'Sección de break' }, { order: 5, name: 'Ritmo Avenida', description: 'Vuelve al groove principal' }, { order: 6, name: 'Corte 1 OnuBatú', description: 'Repetido 3×: las 2 primeras frenando, la 3ª continúa' }, { order: 7, name: '4 Claves y Stop', description: '4 claves de avenida y parada total' }], source: 'Vídeo de Sergio 7:41 enviado a Marta' },
+  merengue: { name: 'Merengue', nameAlt: 'Samba Merengue', status: 'active', clave: 'Clave de Merengue (también: Bossa Nova)', feel: '4/4 recto', description: 'Ritmo de merengue con influencia de samba. Llamada y respuesta entre agudos y graves.', fullSequence: null },
+  afro: { name: 'Afro', nameAlt: 'Samba Afro', status: 'learning', clave: null, feel: '6/8 o 12/8 swing/tresillo — NO es 4/4 recto', description: 'Ritmo sincopado con tresillo. Shuffle: largo-corto. Más espacio y libertad que el samba cerrado. El agogô es clave aquí.', fullSequence: null, notes: 'Sergio grabó patrones afro instrumento por instrumento al final del ensayo (finales de enero 2026). Los vídeos pueden estar por el grupo.' },
+  swing: { name: 'Swing', nameAlt: 'Rumba', status: 'not_yet', clave: 'Clave de Swing (también: Rumba)', feel: 'Swing/shuffle', description: 'En la hoja de claves pero aún no enseñado al grupo.', fullSequence: null },
+  reggae: { name: 'Reggae', nameAlt: 'Samba Reggae', status: 'not_yet', clave: null, feel: 'A medio tiempo, contratiempo fuerte', description: 'Samba reggae — de Salvador de Bahía. Más lento y pesado. Aún no en el repertorio.', fullSequence: null },
+  samba_de_roda: { name: 'Samba de Roda', nameAlt: 'Toma ke Toma / Clave Coco / Partido Alto', status: 'not_yet', clave: 'Samba de Roda ½ Clave', feel: 'Samba en círculo', description: 'Samba de rueda tradicional de Bahía. En la hoja de claves pero aún no enseñado.', fullSequence: null }
 };
 
 export const CORTES = {
   avenida: [
-    {
-      name: 'Corte OnuBatú (Corte Largo)',
-      signal: 'Hand signal: O shape',
-      rhythm: 'avenida',
-      description: 'The signature OnuBatú cut. Also called "corte largo" (long cut). Pakito recorded an explanation on 11/11/2025.',
-      repinique: 'Need to confirm specific part',
-      source: 'Pakito explanation video 11/11/2025'
-    },
-    {
-      name: 'Corte 1 Olodum "Je Je"',
-      signal: null,
-      rhythm: 'avenida',
-      description: 'Olodum-style break. Part of the full avenida sequence (step 3).',
-      repinique: 'Need to confirm',
-      source: 'Sergio full sequence video'
-    },
-    {
-      name: 'Avenida Corte (Graves Roll)',
-      signal: null,
-      rhythm: 'avenida',
-      description: 'Graves do a roll → repinique responds → some "heys".',
-      repinique: 'Responds after graves roll',
-      source: 'Fuzzy — needs confirmation at rehearsal'
-    }
+    { name: 'Corte OnuBatú (Corte Largo)', signal: 'Señal: forma de O', rhythm: 'avenida', description: 'El corte característico de OnuBatú. Pakito grabó explicación 11/11/2025.', repinique: 'Pendiente de confirmar', source: 'Vídeo de Pakito 11/11/2025' },
+    { name: 'Corte 1 Olodum "Je Je"', signal: null, rhythm: 'avenida', description: 'Corte estilo Olodum. Paso 3 de la secuencia de avenida.', repinique: 'Pendiente de confirmar', source: 'Vídeo secuencia de Sergio' },
+    { name: 'Corte Avenida (Rodillo graves)', signal: null, rhythm: 'avenida', description: 'Graves hacen rodillo → repinique responde → "heys".', repinique: 'Responde después del rodillo', source: 'Pendiente confirmar en ensayo' }
   ],
   merengue: [
-    {
-      name: 'Merengue Corte 1',
-      signal: null,
-      rhythm: 'merengue',
-      description: 'Everyone builds up → repinique starts with 2× 5-hit blasts.',
-      repinique: '2× 5-hit blasts to initiate the cut',
-      source: 'Rehearsal'
-    },
-    {
-      name: 'Merengue Corte 2',
-      signal: null,
-      rhythm: 'merengue',
-      description: 'Starts on beat 2, triplets. Call & response: agudos ask, graves answer.',
-      repinique: 'Part of agudos response',
-      source: 'Sergio video 01/02/2026'
-    },
-    {
-      name: 'Merengue Corte 3',
-      signal: null,
-      rhythm: 'merengue',
-      description: 'Everyone together (todos juntos).',
-      repinique: 'Plays with full ensemble',
-      source: 'Marta clarification'
-    },
-    {
-      name: 'Merengue Corte 3 Quebrado',
-      signal: null,
-      rhythm: 'merengue',
-      description: 'Call and response version of Corte 3: agudos (high-pitched) ask, graves (low-pitched) answer.',
-      repinique: 'Part of agudos call',
-      source: 'Marta clarification: "the 3 quebrado is where the high-pitched instruments ask and the low-pitched ones answer"'
-    }
+    { name: 'Merengue Corte 1', signal: null, rhythm: 'merengue', description: 'Todos suben → repinique 2× ráfagas de 5 golpes.', repinique: '2× ráfagas de 5 golpes', source: 'Ensayo' },
+    { name: 'Merengue Corte 2', signal: null, rhythm: 'merengue', description: 'Empieza en tiempo 2, tresillos. Agudos preguntan, graves contestan.', repinique: 'Parte de agudos', source: 'Vídeo Sergio 01/02/2026' },
+    { name: 'Merengue Corte 3', signal: null, rhythm: 'merengue', description: 'Todos juntos.', repinique: 'Toca con todos', source: 'Aclaración de Marta' },
+    { name: 'Merengue Corte 3 Quebrado', signal: null, rhythm: 'merengue', description: 'Los agudos preguntan, los graves contestan.', repinique: 'Parte de la llamada de agudos', source: 'Marta: "el 3 quebrado es donde los agudos preguntan y los graves contestan"' }
   ],
   afro: [
-    {
-      name: 'Afro Break',
-      signal: null,
-      rhythm: 'afro',
-      description: '3 hits then 4 hits (per beat) → timbas do a little roll → jump back in.',
-      repinique: 'Priority: nail the afro groove re-entry. Hardest rhythm to drop back into after a break.',
-      source: 'Rehearsal'
-    }
+    { name: 'Break Afro', signal: null, rhythm: 'afro', description: '3 golpes + 4 golpes → timbas hacen rodillo → vuelven a entrar.', repinique: '⚠️ Prioridad: clavar la re-entrada al groove afro.', source: 'Ensayo' }
   ],
   general: [
-    {
-      name: 'Pedi pa pará',
-      signal: null,
-      rhythm: 'general',
-      description: 'Repinique-specific call pattern.',
-      repinique: 'Repinique initiates this call',
-      source: 'Need notation/pattern'
-    },
-    {
-      name: 'Break "Hey"',
-      signal: null,
-      rhythm: 'general',
-      description: 'One shot → everyone shouts "HEY" → continue playing.',
-      repinique: 'Plays the one shot',
-      source: 'Rehearsal'
-    },
-    {
-      name: 'Photo Break (La Foto)',
-      signal: null,
-      rhythm: 'general',
-      description: 'First 3 notes of the clave (just the first 3 of the 5-note pattern) → freeze/pose.',
-      repinique: 'Plays the 3 clave hits then freezes',
-      source: 'Rehearsal'
-    },
-    {
-      name: 'Triplet Beat Change',
-      signal: 'Hand signal: 3 fingers',
-      rhythm: 'general',
-      description: 'Switches to triplet feel.',
-      repinique: 'Need to confirm what repinique plays during/after transition',
-      source: 'Rehearsal'
-    }
+    { name: 'Pedi pa pará', signal: null, rhythm: 'general', description: 'Llamada específica del repinique.', repinique: 'El repinique inicia', source: 'Pendiente notación' },
+    { name: 'Break "Hey"', signal: null, rhythm: 'general', description: 'Un golpe → todos gritan "HEY" → siguen tocando.', repinique: 'Toca el golpe', source: 'Ensayo' },
+    { name: 'La Foto', signal: null, rhythm: 'general', description: '3 primeras notas de la clave → congelados/pose.', repinique: 'Toca los 3 golpes y se congela', source: 'Ensayo' },
+    { name: 'Cambio a tresillo', signal: 'Señal: 3 dedos', rhythm: 'general', description: 'Cambia a sensación de tresillo.', repinique: 'Pendiente confirmar', source: 'Ensayo' }
   ]
 };
 
 export const HAND_SIGNALS = [
-  {
-    signal: 'O shape (hand)',
-    meaning: 'Corte OnuBatú',
-    context: 'Avenida rhythm',
-    description: 'Director makes an O shape with hand → triggers the Corte Largo / Corte OnuBatú break'
-  },
-  {
-    signal: '3 fingers',
-    meaning: 'Triplet beat change',
-    context: 'Any rhythm',
-    description: 'Director holds up 3 fingers → ensemble switches to triplet feel'
-  },
-  {
-    signal: 'Fist / closed hand',
-    meaning: 'Stop / Silence',
-    context: 'Any rhythm',
-    description: 'Director closes fist → full stop. Everyone stops playing.'
-  },
-  {
-    signal: 'Palm down, lowering',
-    meaning: 'Quieter / Dynamics down',
-    context: 'Any rhythm',
-    description: 'Director lowers open palm → reduce volume gradually'
-  },
-  {
-    signal: 'Palm up, raising',
-    meaning: 'Louder / Dynamics up',
-    context: 'Any rhythm',
-    description: 'Director raises open palm → increase volume gradually'
-  },
-  {
-    signal: 'Circular motion',
-    meaning: 'Continue / Keep going',
-    context: 'Any rhythm',
-    description: 'Director makes circular motion → keep playing the current pattern'
-  },
-  {
-    signal: 'Point to section',
-    meaning: 'Section spotlight',
-    context: 'Any rhythm',
-    description: 'Director points to specific section (agudos, graves, tamborims, etc.) → only that section plays. Used in practice to layer parts and in call-and-response.'
-  }
+  { signal: 'Forma de O (mano)', meaning: 'Corte OnuBatú', context: 'Avenida', description: 'El director hace una O → Corte Largo / Corte OnuBatú' },
+  { signal: '3 dedos', meaning: 'Cambio a tresillo', context: 'Cualquier ritmo', description: 'El director levanta 3 dedos → cambio a sensación de tresillo' },
+  { signal: 'Puño cerrado', meaning: 'Parada / Silencio', context: 'Cualquier ritmo', description: 'Puño cerrado → parada total' },
+  { signal: 'Palma abajo, bajando', meaning: 'Más suave', context: 'Cualquier ritmo', description: 'Baja la palma → reducir volumen' },
+  { signal: 'Palma arriba, subiendo', meaning: 'Más fuerte', context: 'Cualquier ritmo', description: 'Sube la palma → aumentar volumen' },
+  { signal: 'Movimiento circular', meaning: 'Continuar', context: 'Cualquier ritmo', description: 'Movimiento circular → seguir tocando' },
+  { signal: 'Señalar a sección', meaning: 'Sección protagonista', context: 'Cualquier ritmo', description: 'Señala a una sección → solo esa sección toca' }
 ];
 
 export const NOTATION_PATTERNS = {
   afro_repinique: {
-    rhythm: 'afro',
-    instrument: 'repinique',
-    feel: 'Swung/triplet',
-    grid: `Beat:  1 . . . 2 . . . 3 . . . 4 . . .
-Stick: X . . R . . X . . R . . X . . .
-Hand:  . o . . o . . o . . o . . o . .`,
-    tripletGrid: `|1 . .|2 . .|3 . .|4 . .|
-| X o .| R o .| X o .| R o .|`,
-    key: {
-      'X': 'Rim shot / accent (stick)',
-      'R': 'Rim click (stick)',
-      'o': 'Open tone (hand)',
-      '.': 'Rest / ghost'
-    },
+    rhythm: 'afro', instrument: 'repinique', feel: 'Swing/tresillo',
+    grid: `Tiempo: 1 . . . 2 . . . 3 . . . 4 . . .\nPalo:   X . . R . . X . . R . . X . . .\nMano:   . o . . o . . o . . o . . o . .`,
+    tripletGrid: `|1 . .|2 . .|3 . .|4 . .|\n| X o .| R o .| X o .| R o .|`,
+    key: { 'X': 'Rim shot / acento (palo)', 'R': 'Rim click (palo)', 'o': 'Tono abierto (mano)', '.': 'Silencio / nota fantasma' },
     feel_description: 'CRACK-pa... tick-pa... CRACK-pa... tick-pa...',
-    warning: 'Generic pattern — confirm with what Sergio actually teaches',
-    source: 'Compiled from standard batucada afro patterns'
+    warning: 'Patrón genérico — confirmar con lo que Sergio enseña',
+    source: 'Patrones estándar de batucada afro'
   }
 };
 
 export const GLOSSARY = [
-  { term: 'Agudos', translation: 'High-pitched instruments (tamborim, repinique, caixa, agogô, chocalho)', category: 'instrument' },
-  { term: 'Graves', translation: 'Low-pitched / bass instruments (surdos, timbas)', category: 'instrument' },
-  { term: 'Marcação', translation: 'Basic pattern / foundation groove (especially surdo)', category: 'music' },
-  { term: 'Corte', translation: 'Cut / break — a pre-arranged pattern that interrupts the groove', category: 'music' },
-  { term: 'Clave', translation: 'The rhythmic key/pattern that defines a rhythm. Also the wooden sticks.', category: 'music' },
-  { term: 'Virado', translation: 'Flip technique (tamborim) — flipping the drum on certain beats', category: 'technique' },
-  { term: 'Baqueta', translation: 'Drumstick / beater', category: 'equipment' },
-  { term: 'Maza', translation: 'Large soft mallet (for surdos)', category: 'equipment' },
-  { term: 'Mestre', translation: 'Master / Director — the person who conducts the batucada (Sergio)', category: 'role' },
-  { term: 'Pasacalle', translation: 'Street parade / procession', category: 'event' },
-  { term: 'Ensayo', translation: 'Rehearsal', category: 'event' },
-  { term: 'Actuación', translation: 'Performance / gig', category: 'event' },
-  { term: 'Quebrado', translation: 'Broken — a variation where sections alternate instead of playing together', category: 'music' },
-  { term: 'Chamada', translation: 'Call — a musical phrase that signals a change', category: 'music' },
-  { term: 'Parada', translation: 'Stop / pause in the music', category: 'music' },
-  { term: 'Repique', translation: 'Roll / flourish on a drum', category: 'technique' },
-  { term: 'Rim shot', translation: 'Hitting the rim and head simultaneously for a loud crack', category: 'technique' },
-  { term: 'Ghost note', translation: 'Very quiet stroke that adds texture without being heard distinctly', category: 'technique' },
-  { term: 'Open tone', translation: 'Letting the drumhead ring freely after striking', category: 'technique' },
-  { term: 'Muted stroke', translation: 'Pressing hand on head while/after striking to stop it ringing', category: 'technique' },
-  { term: 'Rueda de percusión', translation: 'Percussion circle / drum circle', category: 'event' },
-  { term: 'Tresillo', translation: 'Triplet feel — dividing the beat into 3 instead of 2', category: 'music' },
+  { term: 'Agudos', translation: 'Instrumentos agudos (tamborim, repinique, caixa, agogô, chocalho)', category: 'instrument' },
+  { term: 'Graves', translation: 'Instrumentos graves / bajos (surdos, timbas)', category: 'instrument' },
+  { term: 'Marcação', translation: 'Patrón básico / groove de base (especialmente surdo)', category: 'music' },
+  { term: 'Corte', translation: 'Un patrón preparado que interrumpe el groove', category: 'music' },
+  { term: 'Clave', translation: 'La clave rítmica que define un ritmo. También los palos de madera.', category: 'music' },
+  { term: 'Virado', translation: 'Técnica de girar el tamborim en ciertos tiempos', category: 'technique' },
+  { term: 'Baqueta', translation: 'Palo / baqueta para tocar', category: 'equipment' },
+  { term: 'Maza', translation: 'Mazo grande y suave (para surdos)', category: 'equipment' },
+  { term: 'Mestre', translation: 'Maestro / Director — quien dirige la batucada (Sergio)', category: 'role' },
+  { term: 'Pasacalle', translation: 'Desfile por la calle', category: 'event' },
+  { term: 'Ensayo', translation: 'Práctica', category: 'event' },
+  { term: 'Actuación', translation: 'Actuación / concierto', category: 'event' },
+  { term: 'Quebrado', translation: 'Variación donde las secciones alternan en vez de tocar juntas', category: 'music' },
+  { term: 'Chamada', translation: 'Llamada — frase musical que señala un cambio', category: 'music' },
+  { term: 'Parada', translation: 'Parada / pausa en la música', category: 'music' },
+  { term: 'Repique', translation: 'Rodillo / adorno en un tambor', category: 'technique' },
+  { term: 'Rim shot', translation: 'Golpear aro y parche a la vez (sonido fuerte)', category: 'technique' },
+  { term: 'Nota fantasma', translation: 'Golpe muy suave que añade textura sin oírse claramente', category: 'technique' },
+  { term: 'Tono abierto', translation: 'Dejar que el parche vibre libremente después de golpear', category: 'technique' },
+  { term: 'Golpe apagado', translation: 'Presionar la mano en el parche para parar la vibración', category: 'technique' },
+  { term: 'Rueda de percusión', translation: 'Círculo de percusión', category: 'event' },
+  { term: 'Tresillo', translation: 'Sensación de triplete — dividir el tiempo en 3 en vez de 2', category: 'music' },
 ];
 
 export const YOUTUBE_RESOURCES = [
-  { date: '2025-11-14', who: 'Sergio', title: 'Timbau/Djembe study material (×3)', urls: ['https://youtu.be/THm2au_oEXo', 'https://youtube.com/shorts/1LHLAMenfJg', 'https://youtu.be/pd4QWbyyK_I'], tags: ['timba', 'tutorial'] },
-  { date: '2025-11-20', who: 'Sergio', title: 'Tamborim practice', urls: ['https://youtu.be/h1bIZ2NMOm8'], tags: ['tamborim', 'tutorial'] },
-  { date: '2025-11-27', who: 'Sergio', title: 'DIY baquetas/mazas', urls: ['https://youtu.be/jcwJOWHuBhw'], tags: ['equipment'] },
-  { date: '2025-12-03', who: 'Tana', title: 'Surdo technique', urls: ['https://youtube.com/shorts/VWgYn6YvbvE'], tags: ['surdo', 'tutorial'] },
-  { date: '2025-12-07', who: 'Sergio', title: 'Reference video', urls: ['https://youtu.be/TWB8-kTd0LE'], tags: [] },
-  { date: '2026-01-21', who: 'Manuel', title: 'Reference', urls: ['https://youtu.be/X7SWXN-MUvg'], tags: [] },
-  { date: '2026-01-31', who: 'Manuel', title: 'Sobre esa piedra empezó todo (origins)', urls: ['https://youtu.be/BdBRuHuUhJo'], tags: ['history'] },
+  { date: '2025-11-14', who: 'Sergio', title: 'Material de estudio Timbau/Djembe (×3)', urls: ['https://youtu.be/THm2au_oEXo', 'https://youtube.com/shorts/1LHLAMenfJg', 'https://youtu.be/pd4QWbyyK_I'], tags: ['timba', 'tutorial'] },
+  { date: '2025-11-20', who: 'Sergio', title: 'Práctica de tamborim', urls: ['https://youtu.be/h1bIZ2NMOm8'], tags: ['tamborim', 'tutorial'] },
+  { date: '2025-11-27', who: 'Sergio', title: 'Baquetas/mazas DIY', urls: ['https://youtu.be/jcwJOWHuBhw'], tags: ['equipo'] },
+  { date: '2025-12-03', who: 'Tana', title: 'Técnica de surdo', urls: ['https://youtube.com/shorts/VWgYn6YvbvE'], tags: ['surdo', 'tutorial'] },
+  { date: '2025-12-07', who: 'Sergio', title: 'Vídeo de referencia', urls: ['https://youtu.be/TWB8-kTd0LE'], tags: [] },
+  { date: '2026-01-21', who: 'Manuel', title: 'Referencia', urls: ['https://youtu.be/X7SWXN-MUvg'], tags: [] },
+  { date: '2026-01-31', who: 'Manuel', title: 'Sobre esa piedra empezó todo', urls: ['https://youtu.be/BdBRuHuUhJo'], tags: ['historia'] },
   { date: '2026-02-06', who: 'Adrián', title: 'Short', urls: ['https://youtube.com/shorts/-wZrJp-qz1c'], tags: [] },
 ];
 
 export const EXTERNAL_RESOURCES = {
-  spotify: {
-    name: 'Batuquero Playlist (Collaborative)',
-    url: 'https://open.spotify.com/playlist/7vZFBetDhqRAge8B9MCDae',
-    createdBy: 'Judith',
-    date: '2026-02-06'
-  },
-  sergioYoutube: {
-    name: "Sergio's YouTube",
-    url: 'https://youtube.com/@sergitofernandez2012'
-  },
+  spotify: { name: 'Playlist Batuquero (Colaborativa)', url: 'https://open.spotify.com/playlist/7vZFBetDhqRAge8B9MCDae', createdBy: 'Judith', date: '2026-02-06' },
+  sergioYoutube: { name: 'YouTube de Sergio', url: 'https://youtube.com/@sergitofernandez2012' },
   shops: [
-    { name: 'Grosso Percussion', note: 'Inma ordered repique here' },
-    { name: 'Tam Tam Percusión', note: 'Instruments' },
-    { name: 'Percuforum', note: 'Instruments' },
-    { name: 'Arte y Sonido', note: 'Local — Onujazz ordered fundo 22" here' },
-    { name: 'musicaltommy.com', note: "Manuel's recommended shop" },
+    { name: 'Grosso Percussion', note: 'Inma pidió su repique aquí' },
+    { name: 'Tam Tam Percusión', note: 'Instrumentos' },
+    { name: 'Percuforum', note: 'Instrumentos' },
+    { name: 'Arte y Sonido', note: 'Local — Onujazz pidió el fundo 22" aquí' },
+    { name: 'musicaltommy.com', note: 'Tienda recomendada por Manuel' },
   ]
 };
 
 export const STATUS_LABELS = {
-  active: { label: 'Active', labelEs: 'Activo', color: '#4DB861', icon: '✅' },
-  learning: { label: 'Learning', labelEs: 'Aprendiendo', color: '#F5943B', icon: '🟡' },
-  not_yet: { label: 'Not Yet', labelEs: 'Pendiente', color: '#999', icon: '🔴' }
+  active: { label: 'Activo', color: '#4DB861', icon: '✅' },
+  learning: { label: 'Aprendiendo', color: '#F5943B', icon: '🟡' },
+  not_yet: { label: 'Pendiente', color: '#999', icon: '🔴' }
 };
