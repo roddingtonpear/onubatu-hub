@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --onubatu-red: #E8453C;
+  --onubatu-orange: #F5943B;
+  --onubatu-yellow: #F7D34A;
+  --onubatu-green: #4DB861;
+  --onubatu-teal: #45B5AA;
+  --onubatu-blue: #3B82C4;
+  --onubatu-indigo: #5B5EA6;
+  --onubatu-purple: #8B5EA6;
+  --onubatu-pink: #D64A8C;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #FDF8F0;
+  min-height: 100vh;
+}
+
+/* Watercolor gradient background */
+.watercolor-bg {
+  background:
+    radial-gradient(ellipse at 10% 20%, rgba(232, 69, 60, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 90% 10%, rgba(245, 148, 59, 0.10) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(59, 130, 196, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(77, 184, 97, 0.10) 0%, transparent 50%),
+    radial-gradient(ellipse at 20% 90%, rgba(139, 94, 166, 0.08) 0%, transparent 50%),
+    #FDF8F0;
+}
+
+/* Sender color cycle */
+.sender-color-0 { color: var(--onubatu-red); }
+.sender-color-1 { color: var(--onubatu-blue); }
+.sender-color-2 { color: var(--onubatu-green); }
+.sender-color-3 { color: var(--onubatu-orange); }
+.sender-color-4 { color: var(--onubatu-purple); }
+.sender-color-5 { color: var(--onubatu-teal); }
+.sender-color-6 { color: var(--onubatu-pink); }
+.sender-color-7 { color: var(--onubatu-indigo); }
+
+.sender-bg-0 { background-color: rgba(232, 69, 60, 0.1); border-left: 3px solid var(--onubatu-red); }
+.sender-bg-1 { background-color: rgba(59, 130, 196, 0.1); border-left: 3px solid var(--onubatu-blue); }
+.sender-bg-2 { background-color: rgba(77, 184, 97, 0.1); border-left: 3px solid var(--onubatu-green); }
+.sender-bg-3 { background-color: rgba(245, 148, 59, 0.1); border-left: 3px solid var(--onubatu-orange); }
+.sender-bg-4 { background-color: rgba(139, 94, 166, 0.1); border-left: 3px solid var(--onubatu-purple); }
+.sender-bg-5 { background-color: rgba(69, 181, 170, 0.1); border-left: 3px solid var(--onubatu-teal); }
+.sender-bg-6 { background-color: rgba(214, 74, 140, 0.1); border-left: 3px solid var(--onubatu-pink); }
+.sender-bg-7 { background-color: rgba(91, 94, 166, 0.1); border-left: 3px solid var(--onubatu-indigo); }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(59, 130, 196, 0.3); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(59, 130, 196, 0.5); }
+
+/* Tag pills */
+.tag-pill {
+  @apply inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium;
+}
+
+/* Upload zone */
+.upload-zone {
+  border: 2px dashed rgba(59, 130, 196, 0.4);
+  transition: all 0.3s ease;
+}
+.upload-zone:hover, .upload-zone.dragging {
+  border-color: var(--onubatu-blue);
+  background: rgba(59, 130, 196, 0.05);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-12px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.animate-slide-in {
+  animation: slideIn 0.3s ease forwards;
+}
