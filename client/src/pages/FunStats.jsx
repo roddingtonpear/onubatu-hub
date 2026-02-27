@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, Radar } from 'recharts'
-import { Trophy, Moon, Sun, Image, MessageSquare, Clock, Flame, Smile, AlertCircle, Calendar } from 'lucide-react'
+import { Trophy, Moon, Sun, Image, MessageSquare, Clock, Zap, Smile, AlertCircle, CalendarDays } from 'lucide-react'
 
 const API_BASE = import.meta.env.VITE_API_URL || '/api'
 const COLORS = ['#E8453C', '#3B82C4', '#4DB861', '#F5943B', '#8B5EA6', '#45B5AA', '#D64A8C', '#5B5EA6', '#F7D34A', '#999']
@@ -108,7 +108,7 @@ export default function FunStats() {
           value={`${stats.avgPerDay} msgs`}
         />
         <BigStat
-          icon={Calendar} iconColor="#4DB861"
+          icon={CalendarDays} iconColor="#4DB861"
           label="Busiest Day"
           value={stats.busiestDay?.day || '—'}
           sub={stats.busiestDay ? `${parseInt(stats.busiestDay.count).toLocaleString()} messages` : ''}
@@ -120,7 +120,7 @@ export default function FunStats() {
           sub={stats.busiestHour ? `${parseInt(stats.busiestHour.count).toLocaleString()} messages` : ''}
         />
         <BigStat
-          icon={Flame} iconColor="#E8453C"
+          icon={Zap} iconColor="#E8453C"
           label="Longest Streak"
           value={stats.longestStreak ? `${stats.longestStreak.streak_days} days` : '—'}
           sub={stats.longestStreak?.sender || ''}

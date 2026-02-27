@@ -1,6 +1,6 @@
 import { Routes, Route, NavLink } from 'react-router-dom'
 import { useState } from 'react'
-import { LayoutDashboard, MessageSquare, Users, Upload, Search, BookOpen, Music, BarChart3, Menu, X } from 'lucide-react'
+import { LayoutDashboard, MessageSquare, Users, Upload, Search, BookOpen, Music, BarChart2, Menu, X } from 'lucide-react'
 import Dashboard from './pages/Dashboard'
 import Messages from './pages/Messages'
 import Members from './pages/Members'
@@ -14,7 +14,7 @@ const NAV_ITEMS = [
   { to: '/', icon: LayoutDashboard, label: 'Dashboard' },
   { to: '/knowledge', icon: BookOpen, label: 'Knowledge' },
   { to: '/notation', icon: Music, label: 'Notation' },
-  { to: '/stats', icon: BarChart3, label: 'Stats' },
+  { to: '/stats', icon: BarChart2, label: 'Stats' },
   { to: '/messages', icon: MessageSquare, label: 'Messages' },
   { to: '/members', icon: Users, label: 'Members' },
   { to: '/search', icon: Search, label: 'Search' },

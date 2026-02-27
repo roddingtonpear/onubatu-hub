@@ -1,21 +1,19 @@
 import { useState, useEffect, useCallback } from 'react'
-import { Filter, ChevronLeft, ChevronRight, AlertCircle, Image, Video, Music, FileText, Sticker } from 'lucide-react'
+import { Filter, ChevronLeft, ChevronRight, AlertCircle, Image, Video, Music, FileText } from 'lucide-react'
 import { getMessages, getSenders } from '../utils/api'
+
+const StickerIcon = () => <span className="text-base">🎭</span>
 
 const TYPE_ICONS = {
   image: Image,
   video: Video,
   audio: Music,
   document: FileText,
-  sticker: Sticker,
+  sticker: StickerIcon,
   media: Image,
 }
 
 const COLORS = ['#E8453C', '#3B82C4', '#4DB861', '#F5943B', '#8B5EA6', '#45B5AA', '#D64A8C', '#5B5EA6']
-
-function Sticker(props) {
-  return <span className="text-base">🎭</span>
-}
 
 export default function Messages() {
   const [messages, setMessages] = useState([])

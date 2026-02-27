@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Music, Drum, Hand, Scissors, BookOpen, Youtube, ExternalLink } from 'lucide-react'
+import { Music, Scissors, BookOpen, ExternalLink } from 'lucide-react'
 import InstrumentsSection from '../components/kb/InstrumentsSection'
 import RhythmsSection from '../components/kb/RhythmsSection'
 import CortesSection from '../components/kb/CortesSection'
@@ -7,16 +7,7 @@ import SignalsSection from '../components/kb/SignalsSection'
 import GlossarySection from '../components/kb/GlossarySection'
 import ResourcesSection from '../components/kb/ResourcesSection'
 
-const TABS = [
-  { id: 'rhythms', label: 'Rhythms', labelEs: 'Ritmos', icon: Music },
-  { id: 'instruments', label: 'Instruments', labelEs: 'Instrumentos', icon: Drum },
-  { id: 'cortes', label: 'Cortes', labelEs: 'Cortes', icon: Scissors },
-  { id: 'signals', label: 'Signals', labelEs: 'Señales', icon: Hand },
-  { id: 'glossary', label: 'Glossary', labelEs: 'Glosario', icon: BookOpen },
-  { id: 'resources', label: 'Resources', labelEs: 'Recursos', icon: Youtube },
-]
-
-function Drum(props) {
+function DrumIcon(props) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width={props.size || 24} height={props.size || 24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
       <path d="m2 2 8 8"/><path d="m22 2-8 8"/><ellipse cx="12" cy="14" rx="10" ry="4"/>
@@ -25,7 +16,7 @@ function Drum(props) {
   )
 }
 
-function Hand(props) {
+function HandIcon(props) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width={props.size || 24} height={props.size || 24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
       <path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2"/><path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2"/>
@@ -33,6 +24,23 @@ function Hand(props) {
     </svg>
   )
 }
+
+function YoutubeIcon(props) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width={props.size || 24} height={props.size || 24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M12 19c-2.3 0-6.4-.2-8.1-.6-.7-.2-1.2-.7-1.4-1.4-.3-1.1-.5-3.4-.5-5s.2-3.9.5-5c.2-.7.7-1.2 1.4-1.4C5.6 5.2 9.7 5 12 5s6.4.2 8.1.6c.7.2 1.2.7 1.4 1.4.3 1.1.5 3.4.5 5s-.2 3.9-.5 5c-.2.7-.7 1.2-1.4 1.4-1.7.4-5.8.6-8.1.6z"/><polygon points="10 15 15 12 10 9"/>
+    </svg>
+  )
+}
+
+const TABS = [
+  { id: 'rhythms', label: 'Rhythms', labelEs: 'Ritmos', icon: Music },
+  { id: 'instruments', label: 'Instruments', labelEs: 'Instrumentos', icon: DrumIcon },
+  { id: 'cortes', label: 'Cortes', labelEs: 'Cortes', icon: Scissors },
+  { id: 'signals', label: 'Signals', labelEs: 'Señales', icon: HandIcon },
+  { id: 'glossary', label: 'Glossary', labelEs: 'Glosario', icon: BookOpen },
+  { id: 'resources', label: 'Resources', labelEs: 'Recursos', icon: YoutubeIcon },
+]
 
 const SECTION_MAP = {
   rhythms: RhythmsSection,

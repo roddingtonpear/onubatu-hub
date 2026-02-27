@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts'
-import { MessageSquare, Image, AlertCircle, Users, TrendingUp } from 'lucide-react'
+import { MessageSquare, Image, AlertCircle, Users, TrendingUp, Upload } from 'lucide-react'
 import { getStats } from '../utils/api'
 
 const COLORS = ['#E8453C', '#3B82C4', '#4DB861', '#F5943B', '#8B5EA6', '#45B5AA', '#D64A8C', '#5B5EA6', '#F7D34A']
@@ -166,13 +166,5 @@ export default function Dashboard() {
         </div>
       )}
     </div>
-  )
-}
-
-function Upload(props) {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" width={props.size || 24} height={props.size || 24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="17 8 12 3 7 8" /><line x1="12" x2="12" y1="3" y2="15" />
-    </svg>
   )
 }
