@@ -343,7 +343,7 @@ router.get('/fun-stats', async (req, res) => {
         ORDER BY streak_days DESC LIMIT 5`)
     ]);
 
-    const DOW_NAMES = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const DOW_NAMES = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
 
     res.json({
       chattiest: chattiest.rows,

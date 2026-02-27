@@ -1,17 +1,33 @@
 import { useState, useEffect } from 'react'
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, Radar } from 'recharts'
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts'
 import { Trophy, Moon, Sun, Image, MessageSquare, Clock, Zap, Smile, AlertCircle, CalendarDays } from 'lucide-react'
 
 const API_BASE = import.meta.env.VITE_API_URL || '/api'
 const COLORS = ['#E8453C', '#3B82C4', '#4DB861', '#F5943B', '#8B5EA6', '#45B5AA', '#D64A8C', '#5B5EA6', '#F7D34A', '#999']
 const MEDAL = ['🥇', '🥈', '🥉', '4️⃣', '5️⃣']
 
-function LeaderboardCard({ title, icon: Icon, iconColor, data, labelKey = 'sender', valueKey = 'count', valueSuffix = '', emptyText = 'No data' }) {
+// Consistent colour per sender — same name always gets same colour
+function senderColor(name) {
+  let hash = 0
+  for (let i = 0; i < name.length; i++) {
+    hash = name.charCodeAt(i) + ((hash << 5) - hash)
+  }
+  return COLORS[Math.abs(hash) % COLORS.length]
+}
+
+function LeaderboardCard({ title, icon: Icon, iconColor, data, labelKey = 'sender', valueKey = 'count', valueSuffix = '', emptyText = 'No data', allowPie = false }) {
+  const [view, setView] = useState('bar') // 'bar' | 'pie'
+
   if (!data || data.length === 0) {
     return null
   }
 
   const max = Math.max(...data.map(d => parseInt(d[valueKey])), 1)
+  const pieData = data.map((item, i) => ({
+    name: item[labelKey],
+    value: parseInt(item[valueKey]),
+    fill: senderColor(item[labelKey])
+  }))
 
   return (
     <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-5 border border-gray-100 animate-fade-in">
@@ -20,8 +36,43 @@ function LeaderboardCard({ title, icon: Icon, iconColor, data, labelKey = 'sende
           <Icon size={15} style={{ color: iconColor }} />
         </div>
         <h3 className="font-display font-semibold text-onubatu-dark text-sm">{title}</h3>
+        {allowPie && (
+          <div className="ml-auto flex gap-1">
+            <button
+              onClick={() => setView('bar')}
+              className={`px-2 py-0.5 rounded text-[10px] font-medium transition-all ${view === 'bar' ? 'bg-onubatu-dark text-white' : 'bg-gray-100 text-gray-400'}`}
+            >▬</button>
+            <button
+              onClick={() => setView('pie')}
+              className={`px-2 py-0.5 rounded text-[10px] font-medium transition-all ${view === 'pie' ? 'bg-onubatu-dark text-white' : 'bg-gray-100 text-gray-400'}`}
+            >◕</button>
+          </div>
+        )}
       </div>
 
+      {view === 'pie' && allowPie ? (
+        <ResponsiveContainer width="100%" height={280}>
+          <PieChart>
+            <Pie
+              data={pieData}
+              dataKey="value"
+              nameKey="name"
+              cx="50%"
+              cy="50%"
+              outerRadius={90}
+              innerRadius={40}
+              paddingAngle={2}
+              label={({ name, percent }) => `${name.length > 12 ? name.slice(0, 12) + '…' : name} (${(percent * 100).toFixed(0)}%)`}
+              labelLine={{ stroke: '#ddd' }}
+            >
+              {pieData.map((entry, i) => (
+                <Cell key={i} fill={entry.fill} />
+              ))}
+            </Pie>
+            <Tooltip formatter={(val) => `${val}${valueSuffix}`} />
+          </PieChart>
+        </ResponsiveContainer>
+      ) : (
       <div className="space-y-2.5">
         {data.map((item, i) => {
           const pct = (parseInt(item[valueKey]) / max) * 100
@@ -39,13 +90,14 @@ function LeaderboardCard({ title, icon: Icon, iconColor, data, labelKey = 'sende
               <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
                 <div
                   className="h-full rounded-full transition-all duration-700"
-                  style={{ width: `${pct}%`, backgroundColor: COLORS[i % COLORS.length] }}
+                  style={{ width: `${pct}%`, backgroundColor: senderColor(item[labelKey]) }}
                 />
               </div>
             </div>
           )
         })}
       </div>
+      )}
     </div>
   )
 }
@@ -134,12 +186,14 @@ export default function FunStats() {
           icon={Trophy}
           iconColor="#F7D34A"
           data={stats.chattiest}
+          allowPie
         />
         <LeaderboardCard
           title="Más media compartido"
           icon={Image}
           iconColor="#4DB861"
           data={stats.mediaKings}
+          allowPie
         />
         <LeaderboardCard
           title="Búhos nocturnos (00:00–05:00)"
