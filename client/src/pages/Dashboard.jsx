@@ -36,7 +36,7 @@ export default function Dashboard() {
       <div className="flex items-center justify-center h-64">
         <div className="text-center">
           <div className="w-8 h-8 border-2 border-onubatu-blue border-t-transparent rounded-full animate-spin mx-auto mb-3" />
-          <p className="text-sm text-gray-400">Loading stats...</p>
+          <p className="text-sm text-gray-400">Cargando...</p>
         </div>
       </div>
     )
@@ -48,8 +48,8 @@ export default function Dashboard() {
         <div className="w-16 h-16 bg-onubatu-orange/10 rounded-full flex items-center justify-center mx-auto mb-4">
           <Upload size={24} className="text-onubatu-orange" />
         </div>
-        <h2 className="font-display text-xl font-bold text-onubatu-dark mb-2">No data yet</h2>
-        <p className="text-gray-500 text-sm">Upload a WhatsApp export to get started</p>
+        <h2 className="font-display text-xl font-bold text-onubatu-dark mb-2">Sin datos</h2>
+        <p className="text-gray-500 text-sm">Sube un export de WhatsApp para empezar</p>
       </div>
     )
   }
@@ -59,22 +59,22 @@ export default function Dashboard() {
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="font-display text-2xl font-bold text-onubatu-dark">Dashboard</h2>
-        <p className="text-sm text-gray-400 mt-1">Overview of your OnuBatú group chat</p>
+        <h2 className="font-display text-2xl font-bold text-onubatu-dark">Inicio</h2>
+        <p className="text-sm text-gray-400 mt-1">Resumen del chat del grupo OnuBatú</p>
       </div>
 
       {/* Stat cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <StatCard icon={MessageSquare} label="Messages" value={Number(totals.total_messages).toLocaleString()} color="bg-onubatu-blue" />
+        <StatCard icon={MessageSquare} label="Mensajes" value={Number(totals.total_messages).toLocaleString()} color="bg-onubatu-blue" />
         <StatCard icon={Image} label="Media" value={Number(totals.total_media).toLocaleString()} color="bg-onubatu-green" />
-        <StatCard icon={AlertCircle} label="Important" value={Number(totals.total_important).toLocaleString()} color="bg-onubatu-red" />
-        <StatCard icon={Users} label="Members" value={Number(totals.total_senders).toLocaleString()} color="bg-onubatu-purple" />
+        <StatCard icon={AlertCircle} label="Importante" value={Number(totals.total_important).toLocaleString()} color="bg-onubatu-red" />
+        <StatCard icon={Users} label="Miembros" value={Number(totals.total_senders).toLocaleString()} color="bg-onubatu-purple" />
       </div>
 
       <div className="grid lg:grid-cols-2 gap-6">
         {/* Messages by sender */}
         <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 border border-gray-100">
-          <h3 className="font-display font-semibold text-onubatu-dark mb-4">Top Senders</h3>
+          <h3 className="font-display font-semibold text-onubatu-dark mb-4">Más activos</h3>
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={bySender.slice(0, 10)} layout="vertical" margin={{ left: 0, right: 20 }}>
               <XAxis type="number" tick={{ fontSize: 11, fill: '#999' }} />
@@ -93,7 +93,7 @@ export default function Dashboard() {
 
         {/* Message types pie */}
         <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 border border-gray-100">
-          <h3 className="font-display font-semibold text-onubatu-dark mb-4">Message Types</h3>
+          <h3 className="font-display font-semibold text-onubatu-dark mb-4">Tipos de mensaje</h3>
           <ResponsiveContainer width="100%" height={300}>
             <PieChart>
               <Pie
@@ -123,7 +123,7 @@ export default function Dashboard() {
       {/* Tags */}
       {byTag.length > 0 && (
         <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 border border-gray-100">
-          <h3 className="font-display font-semibold text-onubatu-dark mb-4">Topics & Tags</h3>
+          <h3 className="font-display font-semibold text-onubatu-dark mb-4">Temas y etiquetas</h3>
           <div className="flex flex-wrap gap-2">
             {byTag.map((t, i) => (
               <span
@@ -146,7 +146,7 @@ export default function Dashboard() {
         <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 border border-gray-100">
           <h3 className="font-display font-semibold text-onubatu-dark mb-4">
             <TrendingUp size={16} className="inline mr-2" />
-            Recent Activity
+            Actividad reciente
           </h3>
           <ResponsiveContainer width="100%" height={200}>
             <BarChart data={[...byDate].reverse()}>

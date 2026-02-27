@@ -66,8 +66,8 @@ export default function Messages() {
     <div className="space-y-4">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="font-display text-2xl font-bold text-onubatu-dark">Messages</h2>
-          <p className="text-sm text-gray-400 mt-1">{total.toLocaleString()} messages</p>
+          <h2 className="font-display text-2xl font-bold text-onubatu-dark">Mensajes</h2>
+          <p className="text-sm text-gray-400 mt-1">{total.toLocaleString()} mensajes</p>
         </div>
         <button
           onClick={() => setShowFilters(!showFilters)}
@@ -86,7 +86,7 @@ export default function Messages() {
             onChange={e => { setFilters(f => ({ ...f, sender: e.target.value })); setPage(1); }}
             className="px-3 py-2 rounded-xl bg-white border border-gray-200 text-sm focus:outline-none focus:border-onubatu-blue"
           >
-            <option value="">All senders</option>
+            <option value="">Todos</option>
             {senders.map(s => <option key={s.sender} value={s.sender}>{s.sender}</option>)}
           </select>
 
@@ -95,7 +95,7 @@ export default function Messages() {
             onChange={e => { setFilters(f => ({ ...f, type: e.target.value })); setPage(1); }}
             className="px-3 py-2 rounded-xl bg-white border border-gray-200 text-sm focus:outline-none focus:border-onubatu-blue"
           >
-            <option value="">All types</option>
+            <option value="">Todos los tipos</option>
             <option value="text">Text</option>
             <option value="image">Image</option>
             <option value="video">Video</option>
@@ -108,7 +108,7 @@ export default function Messages() {
             onChange={e => { setFilters(f => ({ ...f, tag: e.target.value })); setPage(1); }}
             className="px-3 py-2 rounded-xl bg-white border border-gray-200 text-sm focus:outline-none focus:border-onubatu-blue"
           >
-            <option value="">All tags</option>
+            <option value="">Todas las etiquetas</option>
             <option value="avenida">Avenida</option>
             <option value="merengue">Merengue</option>
             <option value="reggae">Reggae</option>
@@ -124,8 +124,8 @@ export default function Messages() {
             onChange={e => { setFilters(f => ({ ...f, important: e.target.value })); setPage(1); }}
             className="px-3 py-2 rounded-xl bg-white border border-gray-200 text-sm focus:outline-none focus:border-onubatu-blue"
           >
-            <option value="">All messages</option>
-            <option value="true">Important only</option>
+            <option value="">Todos los mensajes</option>
+            <option value="true">Solo importantes</option>
           </select>
         </div>
       )}
@@ -137,7 +137,7 @@ export default function Messages() {
             <div className="w-6 h-6 border-2 border-onubatu-blue border-t-transparent rounded-full animate-spin" />
           </div>
         ) : messages.length === 0 ? (
-          <div className="text-center py-12 text-gray-400 text-sm">No messages found</div>
+          <div className="text-center py-12 text-gray-400 text-sm">No se encontraron mensajes</div>
         ) : (
           messages.map((msg, idx) => {
             const colorIdx = senderColorMap[msg.sender] ?? 0
@@ -196,7 +196,7 @@ export default function Messages() {
             <ChevronLeft size={16} />
           </button>
           <span className="text-sm text-gray-500">
-            Page {page} of {totalPages}
+            Página {page} of {totalPages}
           </span>
           <button
             onClick={() => setPage(p => Math.min(totalPages, p + 1))}

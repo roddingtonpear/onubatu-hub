@@ -28,8 +28,8 @@ export default function Members() {
   return (
     <div className="space-y-4">
       <div>
-        <h2 className="font-display text-2xl font-bold text-onubatu-dark">Members</h2>
-        <p className="text-sm text-gray-400 mt-1">{senders.length} people in the chat</p>
+        <h2 className="font-display text-2xl font-bold text-onubatu-dark">Miembros</h2>
+        <p className="text-sm text-gray-400 mt-1">{senders.length} personas en el chat</p>
       </div>
 
       <div className="grid gap-3">
@@ -77,7 +77,7 @@ export default function Members() {
 
                   <div className="flex items-center gap-1 mt-1.5 text-[10px] text-gray-400">
                     <Clock size={9} />
-                    Last active: {new Date(sender.last_message).toLocaleDateString('es-ES', {
+                    Último mensaje: {new Date(sender.last_message).toLocaleDateString('es-ES', {
                       day: 'numeric', month: 'short', year: '2-digit'
                     })}
                   </div>

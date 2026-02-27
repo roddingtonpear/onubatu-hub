@@ -40,8 +40,8 @@ export default function SearchPage() {
   return (
     <div className="space-y-4 max-w-3xl mx-auto">
       <div>
-        <h2 className="font-display text-2xl font-bold text-onubatu-dark">Search</h2>
-        <p className="text-sm text-gray-400 mt-1">Find any message in the archive</p>
+        <h2 className="font-display text-2xl font-bold text-onubatu-dark">Buscar</h2>
+        <p className="text-sm text-gray-400 mt-1">Busca cualquier mensaje en el archivo</p>
       </div>
 
       {/* Search bar */}
@@ -52,7 +52,7 @@ export default function SearchPage() {
             type="text"
             value={query}
             onChange={e => setQuery(e.target.value)}
-            placeholder="Search messages... (supports Spanish full-text search)"
+            placeholder="Buscar mensajes..."
             className="w-full pl-11 pr-4 py-3 rounded-2xl bg-white/70 backdrop-blur-sm border border-gray-200 text-sm
               focus:outline-none focus:border-onubatu-blue focus:ring-2 focus:ring-onubatu-blue/20 transition-all"
           />
@@ -68,10 +68,10 @@ export default function SearchPage() {
 
       {results && !loading && (
         <div className="space-y-2">
-          <p className="text-xs text-gray-400">{results.total} results found</p>
+          <p className="text-xs text-gray-400">{results.total} resultados encontrados</p>
 
           {results.messages.length === 0 ? (
-            <div className="text-center py-8 text-gray-400 text-sm">No messages match your search</div>
+            <div className="text-center py-8 text-gray-400 text-sm">No hay mensajes que coincidan</div>
           ) : (
             results.messages.map((msg, idx) => {
               const color = senderColor(msg.sender)
@@ -119,7 +119,7 @@ export default function SearchPage() {
                 disabled={page === 1}
                 className="px-3 py-1.5 rounded-lg bg-white/70 border border-gray-200 text-sm disabled:opacity-30"
               >
-                Prev
+                Ant
               </button>
               <span className="text-sm text-gray-500">
                 {page} / {results.totalPages}
@@ -129,7 +129,7 @@ export default function SearchPage() {
                 disabled={page === results.totalPages}
                 className="px-3 py-1.5 rounded-lg bg-white/70 border border-gray-200 text-sm disabled:opacity-30"
               >
-                Next
+                Sig
               </button>
             </div>
           )}
@@ -139,12 +139,12 @@ export default function SearchPage() {
       {/* Tips */}
       {!results && !loading && (
         <div className="bg-white/70 rounded-2xl p-5 border border-gray-100 mt-8">
-          <h3 className="font-display font-semibold text-onubatu-dark mb-2">Search tips</h3>
+          <h3 className="font-display font-semibold text-onubatu-dark mb-2">Consejos de búsqueda</h3>
           <ul className="text-sm text-gray-600 space-y-1">
-            <li>• Search in Spanish — the search engine understands Spanish word forms</li>
-            <li>• Try rhythm names: <strong>avenida</strong>, <strong>merengue</strong>, <strong>reggae</strong></li>
-            <li>• Search for events: <strong>ensayo</strong>, <strong>actuación</strong></li>
-            <li>• Find by person: use the Messages page filter instead</li>
+            <li>• Busca en español — el motor entiende las formas de las palabras</li>
+            <li>• Prueba nombres de ritmos: <strong>avenida</strong>, <strong>merengue</strong>, <strong>reggae</strong></li>
+            <li>• Busca eventos: <strong>ensayo</strong>, <strong>actuación</strong></li>
+            <li>• Buscar por persona: usa el filtro en la página de Mensajes</li>
           </ul>
         </div>
       )}

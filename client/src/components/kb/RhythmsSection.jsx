@@ -79,7 +79,7 @@ function RhythmDetail({ rhythm, rhythmKey }) {
 
         {rhythm.notes && (
           <div className="mt-3 p-3 rounded-xl bg-onubatu-orange/10 border border-onubatu-orange/20">
-            <p className="text-xs font-semibold text-onubatu-orange mb-1">Note</p>
+            <p className="text-xs font-semibold text-onubatu-orange mb-1">Nota</p>
             <p className="text-sm text-gray-700">{rhythm.notes}</p>
           </div>
         )}
@@ -88,7 +88,7 @@ function RhythmDetail({ rhythm, rhythmKey }) {
       {/* Full sequence */}
       {rhythm.fullSequence && (
         <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-5 border border-gray-100">
-          <h4 className="font-display font-semibold text-onubatu-dark mb-3">Full Sequence</h4>
+          <h4 className="font-display font-semibold text-onubatu-dark mb-3">Secuencia completa</h4>
           <p className="text-xs text-gray-400 mb-3">{rhythm.source}</p>
           <div className="space-y-2">
             {rhythm.fullSequence.map((step, i) => (
@@ -111,7 +111,7 @@ function RhythmDetail({ rhythm, rhythmKey }) {
         <div key={i} className="bg-white/70 backdrop-blur-sm rounded-2xl p-5 border border-gray-100">
           <div className="flex items-center gap-2 mb-3">
             <h4 className="font-display font-semibold text-onubatu-dark">
-              {pattern.instrument.charAt(0).toUpperCase() + pattern.instrument.slice(1)} Pattern
+              {pattern.instrument.charAt(0).toUpperCase() + pattern.instrument.slice(1)} Patrón
             </h4>
             <span className="text-xs px-2 py-0.5 rounded-full bg-onubatu-purple/10 text-onubatu-purple">
               {pattern.feel}

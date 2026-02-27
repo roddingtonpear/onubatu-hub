@@ -359,7 +359,7 @@ export const GLOSSARY = [
   { term: 'Virado', translation: 'Flip technique (tamborim) — flipping the drum on certain beats', category: 'technique' },
   { term: 'Baqueta', translation: 'Drumstick / beater', category: 'equipment' },
   { term: 'Maza', translation: 'Large soft mallet (for surdos)', category: 'equipment' },
-  { term: 'Mestre', translation: 'Master / Director — the person who conducts the batucada (Sergio / Charly)', category: 'role' },
+  { term: 'Mestre', translation: 'Master / Director — the person who conducts the batucada (Sergio)', category: 'role' },
   { term: 'Pasacalle', translation: 'Street parade / procession', category: 'event' },
   { term: 'Ensayo', translation: 'Rehearsal', category: 'event' },
   { term: 'Actuación', translation: 'Performance / gig', category: 'event' },
@@ -373,14 +373,6 @@ export const GLOSSARY = [
   { term: 'Muted stroke', translation: 'Pressing hand on head while/after striking to stop it ringing', category: 'technique' },
   { term: 'Rueda de percusión', translation: 'Percussion circle / drum circle', category: 'event' },
   { term: 'Tresillo', translation: 'Triplet feel — dividing the beat into 3 instead of 2', category: 'music' },
-  { term: 'Chulo/Chulada', translation: 'Cool / Beautiful (slang)', category: 'slang' },
-  { term: 'Guapo/Guapísimo', translation: 'Gorgeous / very gorgeous', category: 'slang' },
-  { term: 'Mola/Me mola', translation: 'Cool / I like it (slang)', category: 'slang' },
-  { term: 'Tío', translation: 'Mate / Dude', category: 'slang' },
-  { term: 'Illo', translation: 'Mate (Andalusian)', category: 'slang' },
-  { term: 'Joío', translation: 'Damn (Andalusian slang)', category: 'slang' },
-  { term: 'Enhorabuena', translation: 'Congratulations', category: 'slang' },
-  { term: 'Currar', translation: 'To work (slang)', category: 'slang' },
 ];
 
 export const YOUTUBE_RESOURCES = [

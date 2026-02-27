@@ -7,7 +7,7 @@ export default function SignalsSection() {
     <div className="space-y-4">
       <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-4 border border-gray-100">
         <p className="text-sm text-gray-600">
-          The mestre (director — Sergio or Charly) uses hand signals to communicate with the group during performances and rehearsals. 
+          The mestre (director — Sergio) uses hand signals to communicate with the group during performances and rehearsals. 
           These signals tell the ensemble when to start, stop, change rhythm, play a corte, or adjust dynamics.
         </p>
         <p className="text-xs text-gray-400 mt-2">
@@ -55,10 +55,10 @@ export default function SignalsSection() {
 
       {/* Note about incomplete signals */}
       <div className="bg-onubatu-orange/10 rounded-2xl p-4 border border-onubatu-orange/20">
-        <p className="text-sm text-onubatu-orange font-medium mb-1">Work in progress</p>
+        <p className="text-sm text-onubatu-orange font-medium mb-1">En progreso</p>
         <p className="text-xs text-gray-600">
-          This is not a complete list. Sergio uses many signals and they evolve as the group adds new cortes and rhythms. 
-          If you spot a signal we haven't documented, add it to the group chat and it'll get picked up here.
+          Esta no es una lista completa. Sergio usa muchas señales y evolucionan a medida que el grupo añade nuevos cortes y ritmos. 
+          Si ves una señal que no hemos documentado, añádela al chat del grupo y se recogerá aquí.
         </p>
       </div>
     </div>

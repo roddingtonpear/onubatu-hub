@@ -90,16 +90,16 @@ export default function InstrumentsSection() {
               {isOpen && (
                 <div className="px-4 pb-4 space-y-3 animate-fade-in border-t border-gray-50 pt-3">
                   <div>
-                    <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1">Technique</p>
+                    <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1">Técnica</p>
                     <p className="text-sm text-gray-700">{inst.technique}</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1">Role in Ensemble</p>
+                    <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1">Rol en el conjunto</p>
                     <p className="text-sm text-gray-700">{inst.role}</p>
                   </div>
                   {inst.players.length > 0 && (
                     <div>
-                      <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1">OnuBatú Players</p>
+                      <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1">Jugadores OnuBatú</p>
                       <div className="flex flex-wrap gap-1.5">
                         {inst.players.map(p => (
                           <span key={p} className="text-xs px-2 py-0.5 rounded-full bg-gray-100 text-gray-600">{p}</span>
@@ -109,7 +109,7 @@ export default function InstrumentsSection() {
                   )}
                   {inst.descriptionEs && (
                     <div>
-                      <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1">En Español</p>
+                      <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1">En español</p>
                       <p className="text-sm text-gray-500 italic">{inst.descriptionEs}</p>
                     </div>
                   )}

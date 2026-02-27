@@ -88,7 +88,7 @@ export default function FunStats() {
   if (!stats) {
     return (
       <div className="text-center py-16">
-        <p className="text-gray-400">Upload a chat export first to see stats</p>
+        <p className="text-gray-400">Sube un export de chat primero para ver estadísticas</p>
       </div>
     )
   }
@@ -96,33 +96,33 @@ export default function FunStats() {
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="font-display text-2xl font-bold text-onubatu-dark">Stats & Leaderboards</h2>
-        <p className="text-sm text-gray-400 mt-1">Who talks the most? Who's the night owl? 👀</p>
+        <h2 className="font-display text-2xl font-bold text-onubatu-dark">Estadísticas</h2>
+        <p className="text-sm text-gray-400 mt-1">¿Quién habla más? ¿Quién es el búho nocturno? 👀</p>
       </div>
 
       {/* Big highlight stats */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
         <BigStat
           icon={MessageSquare} iconColor="#3B82C4"
-          label="Avg / Day"
+          label="Media / Día"
           value={`${stats.avgPerDay} msgs`}
         />
         <BigStat
           icon={CalendarDays} iconColor="#4DB861"
-          label="Busiest Day"
+          label="Día más activo"
           value={stats.busiestDay?.day || '—'}
-          sub={stats.busiestDay ? `${parseInt(stats.busiestDay.count).toLocaleString()} messages` : ''}
+          sub={stats.busiestDay ? `${parseInt(stats.busiestDay.count).toLocaleString()} mensajes` : ''}
         />
         <BigStat
           icon={Clock} iconColor="#F5943B"
-          label="Peak Hour"
+          label="Hora punta"
           value={stats.busiestHour?.hour || '—'}
-          sub={stats.busiestHour ? `${parseInt(stats.busiestHour.count).toLocaleString()} messages` : ''}
+          sub={stats.busiestHour ? `${parseInt(stats.busiestHour.count).toLocaleString()} mensajes` : ''}
         />
         <BigStat
           icon={Zap} iconColor="#E8453C"
-          label="Longest Streak"
-          value={stats.longestStreak ? `${stats.longestStreak.streak_days} days` : '—'}
+          label="Racha más larga"
+          value={stats.longestStreak ? `${stats.longestStreak.streak_days} días` : '—'}
           sub={stats.longestStreak?.sender || ''}
         />
       </div>
@@ -130,31 +130,31 @@ export default function FunStats() {
       {/* Leaderboards grid */}
       <div className="grid lg:grid-cols-2 gap-4">
         <LeaderboardCard
-          title="Most Messages"
+          title="Más mensajes"
           icon={Trophy}
           iconColor="#F7D34A"
           data={stats.chattiest}
         />
         <LeaderboardCard
-          title="Most Media Shared"
+          title="Más media compartido"
           icon={Image}
           iconColor="#4DB861"
           data={stats.mediaKings}
         />
         <LeaderboardCard
-          title="Night Owls (00:00–05:00)"
+          title="Búhos nocturnos (00:00–05:00)"
           icon={Moon}
           iconColor="#8B5EA6"
           data={stats.nightOwls}
         />
         <LeaderboardCard
-          title="Early Birds (06:00–08:00)"
+          title="Madrugadores (06:00–08:00)"
           icon={Sun}
           iconColor="#F5943B"
           data={stats.earlyBirds}
         />
         <LeaderboardCard
-          title="Longest Average Messages"
+          title="Mensajes más largos"
           icon={MessageSquare}
           iconColor="#3B82C4"
           data={stats.longestMessages}
@@ -162,7 +162,7 @@ export default function FunStats() {
           valueSuffix=" chars"
         />
         <LeaderboardCard
-          title="Most 'Important' Messages"
+          title="Más mensajes 'importantes'"
           icon={AlertCircle}
           iconColor="#E8453C"
           data={stats.mostImportant}
@@ -174,7 +174,7 @@ export default function FunStats() {
         <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-5 border border-gray-100">
           <div className="flex items-center gap-2 mb-3">
             <span className="text-lg">🤫</span>
-            <h3 className="font-display font-semibold text-onubatu-dark text-sm">The Quiet Ones</h3>
+            <h3 className="font-display font-semibold text-onubatu-dark text-sm">Los silenciosos</h3>
           </div>
           <div className="flex flex-wrap gap-2">
             {stats.quietest.map((item, i) => (
@@ -189,7 +189,7 @@ export default function FunStats() {
       {/* Activity by hour chart */}
       {stats.hourBreakdown?.length > 0 && (
         <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-5 border border-gray-100">
-          <h3 className="font-display font-semibold text-onubatu-dark text-sm mb-4">Activity by Hour</h3>
+          <h3 className="font-display font-semibold text-onubatu-dark text-sm mb-4">Actividad por hora</h3>
           <ResponsiveContainer width="100%" height={200}>
             <BarChart data={stats.hourBreakdown}>
               <XAxis
@@ -217,11 +217,11 @@ export default function FunStats() {
             </BarChart>
           </ResponsiveContainer>
           <div className="flex justify-center gap-3 mt-2 text-[10px] text-gray-400">
-            <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-[#8B5EA6]" /> Night</span>
-            <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-[#F5943B]" /> Morning</span>
-            <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-[#F7D34A]" /> Midday</span>
-            <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-[#4DB861]" /> Afternoon</span>
-            <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-[#45B5AA]" /> Evening</span>
+            <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-[#8B5EA6]" /> Noche</span>
+            <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-[#F5943B]" /> Mañana</span>
+            <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-[#F7D34A]" /> Mediodía</span>
+            <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-[#4DB861]" /> Tarde</span>
+            <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-[#45B5AA]" /> Noche</span>
           </div>
         </div>
       )}
@@ -229,7 +229,7 @@ export default function FunStats() {
       {/* Activity by day chart */}
       {stats.dayBreakdown?.length > 0 && (
         <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-5 border border-gray-100">
-          <h3 className="font-display font-semibold text-onubatu-dark text-sm mb-4">Activity by Day of Week</h3>
+          <h3 className="font-display font-semibold text-onubatu-dark text-sm mb-4">Actividad por día de la semana</h3>
           <ResponsiveContainer width="100%" height={200}>
             <BarChart data={stats.dayBreakdown}>
               <XAxis dataKey="day" tick={{ fontSize: 10, fill: '#999' }} tickFormatter={d => d.slice(0, 3)} />

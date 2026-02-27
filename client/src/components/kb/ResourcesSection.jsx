@@ -5,7 +5,7 @@ export default function ResourcesSection() {
     <div className="space-y-6">
       {/* YouTube videos */}
       <div>
-        <h3 className="font-display font-semibold text-onubatu-dark mb-3">YouTube Videos Shared in Group</h3>
+        <h3 className="font-display font-semibold text-onubatu-dark mb-3">Vídeos de YouTube compartidos en el grupo</h3>
         <div className="space-y-2">
           {YOUTUBE_RESOURCES.map((res, i) => (
             <div
@@ -20,7 +20,7 @@ export default function ResourcesSection() {
                     <span className="text-sm font-medium text-onubatu-dark">{res.title}</span>
                   </div>
                   <div className="flex items-center gap-2 text-xs text-gray-400">
-                    <span>Shared by {res.who}</span>
+                    <span>Compartido por {res.who}</span>
                     <span>·</span>
                     <span>{new Date(res.date).toLocaleDateString('es-ES', { day: 'numeric', month: 'short', year: '2-digit' })}</span>
                   </div>
@@ -43,7 +43,7 @@ export default function ResourcesSection() {
                       rel="noopener noreferrer"
                       className="text-xs px-2 py-1 rounded-lg bg-red-50 text-red-600 hover:bg-red-100 transition-colors whitespace-nowrap"
                     >
-                      {res.urls.length > 1 ? `Video ${j + 1}` : 'Watch'}
+                      {res.urls.length > 1 ? `Vídeo ${j + 1}` : 'Ver'}
                     </a>
                   ))}
                 </div>
@@ -68,7 +68,7 @@ export default function ResourcesSection() {
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-green-500 text-white text-sm font-medium hover:bg-green-600 transition-colors"
         >
-          Open in Spotify
+          Abrir en Spotify
         </a>
       </div>
 
@@ -78,7 +78,7 @@ export default function ResourcesSection() {
           <span className="text-2xl">🎬</span>
           <div>
             <h3 className="font-display font-semibold text-onubatu-dark">{EXTERNAL_RESOURCES.sergioYoutube.name}</h3>
-            <p className="text-xs text-gray-400">Music Director's channel</p>
+            <p className="text-xs text-gray-400">Canal del director musical</p>
           </div>
         </div>
         <a
@@ -87,13 +87,13 @@ export default function ResourcesSection() {
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-red-500 text-white text-sm font-medium hover:bg-red-600 transition-colors"
         >
-          Visit Channel
+          Ver canal
         </a>
       </div>
 
       {/* Shops */}
       <div>
-        <h3 className="font-display font-semibold text-onubatu-dark mb-3">Instrument Shops</h3>
+        <h3 className="font-display font-semibold text-onubatu-dark mb-3">Tiendas de instrumentos</h3>
         <div className="grid sm:grid-cols-2 gap-2">
           {EXTERNAL_RESOURCES.shops.map((shop, i) => (
             <div

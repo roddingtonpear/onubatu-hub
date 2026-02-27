@@ -19,7 +19,7 @@ const CONFIDENCE_STYLES = {
   low: { bg: 'bg-red-50', border: 'border-red-200', text: 'text-red-700', label: 'Low — likely needs manual fixes' },
 }
 
-export default function NotationTranscriber() {
+export default function NotaciónTranscribirr() {
   const [mode, setMode] = useState('image') // 'image' | 'text'
   const [loading, setLoading] = useState(false)
   const [result, setResult] = useState(null)
@@ -77,8 +77,8 @@ export default function NotationTranscriber() {
   return (
     <div className="space-y-5 max-w-3xl mx-auto">
       <div>
-        <h2 className="font-display text-2xl font-bold text-onubatu-dark">Notation Transcriber</h2>
-        <p className="text-sm text-gray-400 mt-1">Photo or text → clean tubos grid notation</p>
+        <h2 className="font-display text-2xl font-bold text-onubatu-dark">Transcriptor de Notación</h2>
+        <p className="text-sm text-gray-400 mt-1">Foto o texto → notación limpia en formato tubos</p>
       </div>
 
       {/* How to read guide toggle */}
@@ -87,7 +87,7 @@ export default function NotationTranscriber() {
         className="flex items-center gap-2 text-sm text-onubatu-blue font-medium hover:text-onubatu-dark transition-colors w-full"
       >
         <HelpCircle size={15} />
-        How to read tubos grid notation
+        Cómo leer la notación tubos
         {showGuide ? <ChevronUp size={14} className="ml-auto" /> : <ChevronDown size={14} className="ml-auto" />}
       </button>
 
@@ -128,7 +128,7 @@ export default function NotationTranscriber() {
           {previewUrl && !loading ? (
             <div>
               <img src={previewUrl} alt="Preview" className="max-h-48 mx-auto rounded-xl mb-3 shadow-sm" />
-              <p className="text-xs text-gray-400">Tap to choose a different photo</p>
+              <p className="text-xs text-gray-400">Toca para elegir otra foto</p>
             </div>
           ) : (
             <>
@@ -136,10 +136,10 @@ export default function NotationTranscriber() {
                 <Camera size={24} className="text-onubatu-blue" />
               </div>
               <p className="text-sm font-medium text-onubatu-dark mb-1">
-                Upload a photo of notation
+                Sube una foto de notación
               </p>
               <p className="text-xs text-gray-400">
-                Handwritten sheets, clave patterns, Sergio's notation, phone screenshots
+                Hojas escritas a mano, patrones de clave, notación de Sergio, capturas del móvil
               </p>
             </>
           )}
@@ -149,7 +149,7 @@ export default function NotationTranscriber() {
           <textarea
             value={textInput}
             onChange={e => setTextInput(e.target.value)}
-            placeholder={"Paste notation here...\n\nExamples:\n• Copy from WhatsApp: \"X . o . X . o . X . o .\"\n• Sergio's patterns: \"1 e + a 2 e + a ...\"\n• Any text description: \"surdo fundo hits on 2 and 4, muted on 1 and 3\""}
+            placeholder={"Pega la notación aquí...\n\nExamples:\n• Copy from WhatsApp: \"X . o . X . o . X . o .\"\n• Sergio's patterns: \"1 e + a 2 e + a ...\"\n• Any text description: \"surdo fundo hits on 2 and 4, muted on 1 and 3\""}
             className="w-full h-48 px-4 py-3 rounded-2xl bg-white/70 border border-gray-200 text-sm font-mono
               focus:outline-none focus:border-onubatu-blue focus:ring-2 focus:ring-onubatu-blue/20 resize-none"
           />
@@ -159,7 +159,7 @@ export default function NotationTranscriber() {
             className="px-5 py-2.5 rounded-xl bg-onubatu-blue text-white text-sm font-medium
               hover:bg-onubatu-blue/90 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
           >
-            Transcribe
+            Transcribir
           </button>
         </div>
       )}
@@ -168,7 +168,7 @@ export default function NotationTranscriber() {
       {loading && (
         <div className="flex items-center justify-center gap-3 py-8">
           <Loader size={18} className="text-onubatu-blue animate-spin" />
-          <p className="text-sm text-gray-500">AI is reading the notation...</p>
+          <p className="text-sm text-gray-500">La IA está leyendo la notación...</p>
         </div>
       )}
 
@@ -183,12 +183,12 @@ export default function NotationTranscriber() {
       )}
 
       {/* Result */}
-      {result && !loading && <NotationResult result={result} />}
+      {result && !loading && <NotaciónResult result={result} />}
     </div>
   )
 }
 
-function NotationResult({ result }) {
+function NotaciónResult({ result }) {
   if (result.raw) {
     return (
       <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-5 border border-gray-100 animate-fade-in">
@@ -207,7 +207,7 @@ function NotationResult({ result }) {
       {/* Header */}
       <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-5 border border-gray-100">
         <div className="flex items-center gap-3 mb-3 flex-wrap">
-          <h3 className="font-display text-lg font-bold text-onubatu-dark">{n.title || 'Transcribed Pattern'}</h3>
+          <h3 className="font-display text-lg font-bold text-onubatu-dark">{n.title || 'Transcribird Pattern'}</h3>
           {n.rhythm && n.rhythm !== 'unknown' && (
             <span
               className="text-xs px-2 py-0.5 rounded-full font-medium capitalize"
@@ -238,7 +238,7 @@ function NotationResult({ result }) {
 
       {/* Grid */}
       <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-5 border border-gray-100">
-        <h4 className="font-display font-semibold text-onubatu-dark mb-3">Notation</h4>
+        <h4 className="font-display font-semibold text-onubatu-dark mb-3">Notación</h4>
         <pre className="bg-onubatu-dark rounded-xl p-5 text-sm font-mono text-green-300 overflow-x-auto leading-relaxed">
           {n.grid}
         </pre>
@@ -262,7 +262,7 @@ function NotationResult({ result }) {
       {/* Notes */}
       {n.notes && (
         <div className="bg-onubatu-blue/5 rounded-2xl p-4 border border-onubatu-blue/10">
-          <p className="text-xs font-semibold text-onubatu-blue mb-1">Performance Notes</p>
+          <p className="text-xs font-semibold text-onubatu-blue mb-1">Notas de interpretación</p>
           <p className="text-sm text-gray-700">{n.notes}</p>
         </div>
       )}
@@ -273,7 +273,7 @@ function NotationResult({ result }) {
 function HowToReadGuide() {
   return (
     <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-5 border border-gray-100 animate-fade-in space-y-4">
-      <h3 className="font-display font-semibold text-onubatu-dark">How to Read Tubos Grid Notation</h3>
+      <h3 className="font-display font-semibold text-onubatu-dark">How to Read Tubos Grid Notación</h3>
 
       <p className="text-sm text-gray-600">
         Tubos grid notation is a simple way to write down percussion patterns using a grid of boxes.

@@ -24,7 +24,7 @@ export default function CortesSection() {
           className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all
             ${filter === 'all' ? 'bg-onubatu-dark text-white' : 'bg-white/70 text-gray-500 border border-gray-200'}`}
         >
-          All Cortes
+          Todos los cortes
         </button>
         {Object.keys(CORTES).map(key => (
           <button
@@ -46,7 +46,7 @@ export default function CortesSection() {
             className="font-display font-semibold text-sm uppercase tracking-wide px-1"
             style={{ color: RHYTHM_COLORS[rhythmKey] }}
           >
-            {rhythmKey === 'general' ? 'General / All Rhythms' : `${RHYTHMS[rhythmKey]?.name || rhythmKey} Cortes`}
+            {rhythmKey === 'general' ? 'General / Todos los ritmos' : `${RHYTHMS[rhythmKey]?.name || rhythmKey} Cortes`}
           </h3>
 
           {cortes.map((corte, i) => (
@@ -75,7 +75,7 @@ export default function CortesSection() {
                   <p className="text-sm text-onubatu-dark">{corte.repinique}</p>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="text-[10px] font-semibold text-gray-400 uppercase tracking-wide mt-0.5 flex-shrink-0 w-16">Source</span>
+                  <span className="text-[10px] font-semibold text-gray-400 uppercase tracking-wide mt-0.5 flex-shrink-0 w-16">Fuente</span>
                   <p className="text-xs text-gray-400">{corte.source}</p>
                 </div>
               </div>

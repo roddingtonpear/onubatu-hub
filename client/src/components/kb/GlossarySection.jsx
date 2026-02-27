@@ -2,13 +2,12 @@ import { useState } from 'react'
 import { GLOSSARY } from '../../data/knowledge'
 
 const CATEGORY_LABELS = {
-  instrument: { label: 'Instruments', color: '#3B82C4' },
-  music: { label: 'Music', color: '#E8453C' },
-  technique: { label: 'Technique', color: '#4DB861' },
-  equipment: { label: 'Equipment', color: '#F5943B' },
+  instrument: { label: 'Instrumentos', color: '#3B82C4' },
+  music: { label: 'Música', color: '#E8453C' },
+  technique: { label: 'Técnica', color: '#4DB861' },
+  equipment: { label: 'Equipo', color: '#F5943B' },
   role: { label: 'Roles', color: '#8B5EA6' },
-  event: { label: 'Events', color: '#45B5AA' },
-  slang: { label: 'Slang', color: '#D64A8C' },
+  event: { label: 'Eventos', color: '#45B5AA' },
 }
 
 export default function GlossarySection() {
@@ -31,7 +30,7 @@ export default function GlossarySection() {
         type="text"
         value={search}
         onChange={e => setSearch(e.target.value)}
-        placeholder="Search glossary..."
+        placeholder="Buscar en el glosario..."
         className="w-full px-4 py-2.5 rounded-xl bg-white/70 border border-gray-200 text-sm
           focus:outline-none focus:border-onubatu-blue focus:ring-2 focus:ring-onubatu-blue/20"
       />
@@ -61,7 +60,7 @@ export default function GlossarySection() {
       {/* Terms */}
       <div className="bg-white/70 backdrop-blur-sm rounded-2xl border border-gray-100 divide-y divide-gray-50 overflow-hidden">
         {filtered.length === 0 ? (
-          <div className="p-8 text-center text-sm text-gray-400">No matches found</div>
+          <div className="p-8 text-center text-sm text-gray-400">No se encontraron resultados</div>
         ) : (
           filtered.map((item, i) => {
             const cat = CATEGORY_LABELS[item.category]
@@ -87,7 +86,7 @@ export default function GlossarySection() {
         )}
       </div>
 
-      <p className="text-xs text-gray-400 text-center">{filtered.length} terms</p>
+      <p className="text-xs text-gray-400 text-center">{filtered.length} términos</p>
     </div>
   )
 }

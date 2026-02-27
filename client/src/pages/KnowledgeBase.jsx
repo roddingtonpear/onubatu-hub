@@ -58,8 +58,8 @@ export default function KnowledgeBase() {
   return (
     <div className="space-y-4">
       <div>
-        <h2 className="font-display text-2xl font-bold text-onubatu-dark">Knowledge Base</h2>
-        <p className="text-sm text-gray-400 mt-1">Rhythms, instruments, cortes, signals & more</p>
+        <h2 className="font-display text-2xl font-bold text-onubatu-dark">Guía</h2>
+        <p className="text-sm text-gray-400 mt-1">Ritmos, instrumentos, cortes, señales y más</p>
       </div>
 
       {/* Tab navigation */}

@@ -11,14 +11,14 @@ import NotationTranscriber from './pages/NotationTranscriber'
 import FunStats from './pages/FunStats'
 
 const NAV_ITEMS = [
-  { to: '/', icon: LayoutDashboard, label: 'Dashboard' },
-  { to: '/knowledge', icon: BookOpen, label: 'Knowledge' },
-  { to: '/notation', icon: Music, label: 'Notation' },
-  { to: '/stats', icon: BarChart2, label: 'Stats' },
-  { to: '/messages', icon: MessageSquare, label: 'Messages' },
-  { to: '/members', icon: Users, label: 'Members' },
-  { to: '/search', icon: Search, label: 'Search' },
-  { to: '/upload', icon: Upload, label: 'Upload' },
+  { to: '/', icon: LayoutDashboard, label: 'Inicio' },
+  { to: '/knowledge', icon: BookOpen, label: 'Guía' },
+  { to: '/notation', icon: Music, label: 'Notación' },
+  { to: '/stats', icon: BarChart2, label: 'Estadísticas' },
+  { to: '/messages', icon: MessageSquare, label: 'Mensajes' },
+  { to: '/members', icon: Users, label: 'Miembros' },
+  { to: '/search', icon: Search, label: 'Buscar' },
+  { to: '/upload', icon: Upload, label: 'Subir' },
 ]
 
 export default function App() {
@@ -68,7 +68,7 @@ export default function App() {
         <div className="absolute bottom-0 left-0 right-0 p-6">
           <div className="p-3 rounded-xl bg-gradient-to-br from-onubatu-red/5 via-onubatu-blue/5 to-onubatu-green/5 border border-onubatu-blue/10">
             <p className="text-xs text-gray-500 leading-relaxed">
-              Upload WhatsApp exports to organize your batucada group chat
+              Sube los exports de WhatsApp para organizar el chat de tu grupo de batucada
             </p>
           </div>
         </div>
